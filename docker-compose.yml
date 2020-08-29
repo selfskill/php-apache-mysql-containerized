@@ -32,7 +32,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-            - data:/var/lib/mysql
+      - data:/var/lib/mysql
     networks:
       - backend
     environment:
@@ -75,4 +75,4 @@ networks:
   frontend:
   backend:
 volumes:
-    data:
+  data:
