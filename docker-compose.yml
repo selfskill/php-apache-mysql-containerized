@@ -41,25 +41,35 @@ services:
       MYSQL_USER: "${DB_USERNAME}"
       MYSQL_PASSWORD: "${DB_PASSWORD}"
     container_name: mysql
-    
- phpmyadmin:
+  # ------------------------ 
+# phpmyadmin:
+    #image: phpmyadmin/phpmyadmin
+   # container_name: phpmyadmin
+   # networks:
+    #  - backend
+   # environment:
+     # PMA_PORT: 3306
+      #PMA_USER: "${DB_USERNAME}"
+      #PMA_PASSWORD: "${DB_PASSWORD}"
+      #MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      #MYSQL_USER: "${DB_USERNAME}"
+      #MYSQL_PASSWORD: ""${DB_PASSWORD}"
+   # ports:
+     # - '${HOST_MACHINE_PMA_PORT}:8080'
+   # volumes: 
+     # - /sessions
+ #------------------------------
+      phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
-    networks:
-      - backend
     environment:
-      PMA_PORT: 3306
-      PMA_USER: "${DB_USERNAME}"
-      PMA_PASSWORD: "${DB_PASSWORD}"
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-      MYSQL_USER: "${DB_USERNAME}"
-      MYSQL_PASSWORD: ""${DB_PASSWORD}"
+     - PMA_ARBITRARY=1
+    restart: always
     ports:
-      - '${HOST_MACHINE_PMA_PORT}:8080'
-    volumes: 
-      - /sessions
- 
-      
+     - 8080:8080
+    volumes:
+     - /sessions
+     
 networks:
   frontend:
   backend:
