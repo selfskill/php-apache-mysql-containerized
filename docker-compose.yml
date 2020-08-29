@@ -48,7 +48,6 @@ services:
     networks:
       - backend
     environment:
-    PMA_PORT: "3306"
     PMA_USER: "${DB_USERNAME}"
     PMA_PASSWORD: "${DB_PASSWORD}"
     MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
