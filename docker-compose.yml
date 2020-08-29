@@ -48,7 +48,6 @@ services:
     networks:
       - backend
     environment:
-      PMA_HOST: mysql
       PMA_PORT: 3306
       PMA_USER: "${DB_USERNAME}"
       PMA_PASSWORD: "${DB_PASSWORD}"
